@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>loginpage</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <form name="loginform">
+  <div text-center>
+              <h3>LOGIN!!</h3>
+            </div>
+            <div padding>
+              <ion-item>
+                <ion-input name="name" type="text" [(ngModel)]="username" placeholder="Enter UserName" required></ion-input>
+              </ion-item>
+              <span *ngIf="username == '' || username == null">
+                This is required field
+                  </span>
+                  <ion-item>
+                    <ion-input name="pwd" type="password" placeholder="Password" ng-minlength="8" [(ngModel)]="password" required></ion-input>
+                  </ion-item>
+                  <span *ngIf="password == '' || password == null">
+                    This is required field
+                      </span>
+                  <span *ngIf="password?.length < 8">
+                    minimum length required is 8
+                    </span>
+                    <div padding>
+                      <p>{{err}}</p>
+                      </div>
+                    <div>
+                    <button ion-button name="btn" type="submit" [disabled]="(username=='' || username == null||password == '' || password == null || password?.length < 8) ? true: false" (click)="onLogin()">login</button>
+
+                  </div>
+                <!--  <div>
+                    <button ion-button type="submit" click="onRegister()">register</button>
+                    </div> -->
+            </div>
+  </form>
+</ion-content>

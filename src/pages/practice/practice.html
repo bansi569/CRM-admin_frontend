@@ -1,0 +1,58 @@
+<!--
+  Generated template for the PracticePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>practice</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+<ion-card>
+<ion-card-header>
+  <div text-center>
+    <h2>Sync.com</h2>
+  </div>
+</ion-card-header>
+<ion-card-content>
+ <ion-grid>
+  <ion-row>
+   <ion-col>
+     <ion-item>
+      <ion-label>choose your storage:</ion-label>
+      <ion-select [(ngModel)]="storage" (ionChange)="getPlan()"placeholder="Select One">
+        <ion-option value="5">1TB($5 per month and per user)</ion-option>
+        <ion-option value="8">4TB($8 per month and per user)</ion-option>
+        <ion-option value="15">10TB($15 per month and per user)</ion-option>
+      </ion-select>
+    </ion-item>
+   </ion-col>
+   <ion-col>
+     <ion-item>
+      <ion-label>Users:</ion-label>
+      <ion-select [(ngModel)]="users" (ionChange)="getUser()"placeholder="Select One">
+        <ion-option value="2" >2</ion-option>
+        <ion-option value="3" >3</ion-option>
+        <ion-option value="5" >5</ion-option>
+        <ion-option value="10">10</ion-option>
+        <ion-option value="20">20</ion-option>
+        <ion-option value="30">30</ion-option>
+        <ion-option value="40">40</ion-option>
+        <ion-option value="50">50</ion-option>
+        <ion-option value="100">100</ion-option>
+      </ion-select>
+    </ion-item>
+   </ion-col>
+  </ion-row>
+ </ion-grid>
+ <div text-center>
+   <ng-container *ngIf="users!=0&&storage!=0">
+    <h1>price is {{users*storage}}$ per month</h1>
+    </ng-container>
+ </div>
+</ion-card-content>
+</ion-card>
+</ion-content>

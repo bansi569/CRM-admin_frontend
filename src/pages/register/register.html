@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>registration</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <div text-center>
+              <h3>Register</h3>
+            </div>
+            <div padding>
+              <ion-item>
+                <ion-input name="name" [(ngModel)]="username" type="text" placeholder="Enter UserName" required></ion-input>
+              </ion-item>
+              <span *ngIf="username == '' || username == null">
+                This is required field
+                  </span>
+                  <ion-item>
+                    <ion-input name="pwd" type="password" placeholder="Password" ng-minlength="8" [(ngModel)]="password" required></ion-input>
+                  </ion-item>
+                  <span *ngIf="password == '' || password == null">
+                    This is required field
+                      </span>
+                  <span *ngIf="password?.length < 8">
+                    minimum length required is 8
+                    </span>
+                    <ion-item>
+                      <ion-input name="phn" type="number" placeholder="enter phonemumber" ng-minlength="10" [(ngModel)]="phone" required></ion-input>
+                    </ion-item>
+                    <ion-item>
+                      <ion-input name="emal" type="email" placeholder="enter email" [(ngModel)]="email" required></ion-input>
+                    </ion-item>
+                    <div>
+                    <button ion-button [disabled]="(username=='' || username == null||password == '' || password == null || password?.length < 8||phone==''||phone==null||phone?.length<10) ? true: false" (click)="onRegister()">login</button>
+                    <button ion-button (click)="viewUserProfile()">view profiles</button>
+                    <button ion-button (click)="onLogOut()">Logout</button>
+                    </div>
+                    <div>
+                      <ion-item [(hidden)]="value">
+                        <ion-input  type="text" [(ngModel)]="admin" ></ion-input>
+                      </ion-item>
+                    </div>
+                    </div>
+          </ion-content>
